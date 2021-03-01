@@ -19,6 +19,7 @@ public class Menu {
     private String menuName;
     private double price;
     @ManyToOne
+    @JoinColumn(name = "hotel_id")
     private Hotel hotel;
 
     public Menu(String menuName, double price) {
