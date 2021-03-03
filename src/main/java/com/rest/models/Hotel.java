@@ -17,13 +17,16 @@ public class Hotel {
     @SequenceGenerator(name = "hotel_id", sequenceName = "hotel_id")
     private Integer hotelId;
     private String hotelName;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "hotel_id")
     private Set<Menu> menuList;
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(name = "hotel_delivery",
             joinColumns = @JoinColumn(name = "hotel_id"),
             inverseJoinColumns = @JoinColumn(name = "delivery_id")

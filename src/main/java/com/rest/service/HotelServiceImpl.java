@@ -35,7 +35,7 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public List<Hotel> getHotelsByCity(String city) {
-        return null;
+        return hotelRepository.findByAddressCity(city);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public List<Hotel> getHotelsByLocation(String location) {
-        return null;
+        return hotelRepository.findByAddressStreetName(location);
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.rest.models.Address;
 import com.rest.models.Delivery;
 import com.rest.models.Hotel;
 import com.rest.models.Menu;
+import com.rest.service.DeliveryService;
 import com.rest.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,18 +25,36 @@ public class RestHotelAppApplication implements CommandLineRunner {
 	@Autowired
 	HotelService hotelService;
 
+	@Autowired
+	DeliveryService deliveryService;
+
 	@Override
 	public void run(String... args) throws Exception {
 
-		Address address = new Address("Hoskins Road", "North Vancouver", 80900, "BC");
+		/*Address address = new Address("Granville Street", "Downtown Vancouver", 80900, "BC");
 		Menu menu1 = new Menu("Burguer and Fries", 20);
-		Menu menu2 = new Menu("Pizza", 45);
+		Menu menu2 = new Menu("Pizza", 15);
 		Set<Menu> menuList = new HashSet<>(Arrays.asList(menu1, menu2));
-		Delivery delivery1 = new Delivery("uber eats", 2);
-		Delivery delivery2 = new Delivery("skip dishes", 2);
-		Set<Delivery> deliveryList = new HashSet<>(Arrays.asList(delivery1, delivery2));
+		Delivery delivery1 = deliveryService.getDeliveryByPartner("swiggy");
+		Set<Delivery> deliveryList = new HashSet<>(Arrays.asList(delivery1));
 
-		Hotel hotel = new Hotel("Air B", address, menuList, deliveryList);
-		hotelService.addHotel(hotel);
+		Hotel hotel = new Hotel("Trump Tower", address, menuList, deliveryList);
+		hotelService.addHotel(hotel);*/
+
+		/*Hotel h = hotelService.getHotelById(152);
+		h.getDelivery().add(deliveryService.getDeliveryByPartner("skip the dishes"));
+		System.out.println(h);
+		hotelService.updateHotel(h); */
+
+		hotelService.getHotelsByCity("Downtown Vancouver")
+				.stream()
+				.forEach(System.out::println);
+
+		System.out.println();
+
+		hotelService.getHotelsByLocation(" Street")
+				.stream()
+				.forEach(System.out::println);
+
 	}
 }
