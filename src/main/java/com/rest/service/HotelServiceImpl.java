@@ -40,12 +40,12 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public List<Hotel> getHotelsByMenu(String menuName) {
-        return null;
+        return hotelRepository.getHotelsByMenu(menuName);
     }
 
     @Override
     public List<Hotel> getHotelsByDelivery(String partnerName) {
-        return null;
+        return hotelRepository.getHotelsByDelivery(partnerName);
     }
 
     @Override
@@ -55,6 +55,6 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public List<Hotel> getHotelsByLocationAndMenu(String location, String menuName) {
-        return null;
+        return hotelRepository.getHotelsByLocationAndMenu(location, menuName);
     }
 }

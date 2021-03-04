@@ -6,6 +6,7 @@ import com.rest.models.Hotel;
 import com.rest.models.Menu;
 import com.rest.service.DeliveryService;
 import com.rest.service.HotelService;
+import com.rest.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,6 +29,9 @@ public class RestHotelAppApplication implements CommandLineRunner {
 	@Autowired
 	DeliveryService deliveryService;
 
+	@Autowired
+	MenuService menuService;
+
 	@Override
 	public void run(String... args) throws Exception {
 
@@ -46,15 +50,33 @@ public class RestHotelAppApplication implements CommandLineRunner {
 		System.out.println(h);
 		hotelService.updateHotel(h); */
 
-		hotelService.getHotelsByCity("Downtown Vancouver")
+		/*hotelService.getHotelsByCity("Downtown Vancouver")
 				.stream()
 				.forEach(System.out::println);
+		System.out.println();
+		hotelService.getHotelsByLocation(" Street")
+				.stream()
+				.forEach(System.out::println);*/
+		/*hotelService.getHotelsByMenu("Burguer and Fries")
+				.stream()
+				.forEach( h -> System.out.println(h.getHotelName()+ " - " +h.getAddress().getStreetName()));
 
 		System.out.println();
 
-		hotelService.getHotelsByLocation(" Street")
+		hotelService.getHotelsByDelivery("uber eats")
 				.stream()
-				.forEach(System.out::println);
+				.forEach( h -> System.out.println(h.getHotelName() + " - " + h.getAddress().getStreetName()));
+
+		System.out.println();
+
+		hotelService.getHotelsByLocationAndMenu("Granville Street", "Pizza")
+				.stream()
+				.forEach( h -> System.out.println(h.getHotelName() + " - " + h.getAddress().getCity()));*/
+
+		menuService.getMenusByHotel("Silvia Hotel")
+				.stream()
+				.forEach( m -> System.out.println(m.getHotel().getHotelName() + ": " + m.getMenuName() ));
+
 
 	}
 }

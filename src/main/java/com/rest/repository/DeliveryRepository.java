@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DeliveryRepository extends JpaRepository<Delivery, Integer> {
-    //derived query
+    //Derived query
     Delivery findByPartnerName(String partnerName);
 
 }
