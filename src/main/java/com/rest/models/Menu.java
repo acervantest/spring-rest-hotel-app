@@ -1,5 +1,6 @@
 package com.rest.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,10 +17,14 @@ public class Menu {
     @GeneratedValue(generator = "menu_id", strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "menu_id", sequenceName = "menu_id")
     private Integer menuId;
+
     private String menuName;
+
     private double price;
+
     @ManyToOne
     @JoinColumn(name = "hotel_id")
+    @JsonIgnore
     private Hotel hotel;
 
     public Menu(String menuName, double price) {

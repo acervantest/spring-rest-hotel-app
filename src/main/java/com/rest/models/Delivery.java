@@ -1,5 +1,6 @@
 package com.rest.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,9 +19,12 @@ public class Delivery {
     @GeneratedValue(generator = "del_id", strategy = GenerationType.AUTO)
     @SequenceGenerator(name = "del_id", sequenceName = "delivery_id")
     private Integer deliveryId;
+
     private String partnerName;
+
     private double charges;
     @ManyToMany(mappedBy = "delivery")
+    @JsonIgnore
     private Set<Hotel> hotelList = new HashSet<>();
 
     public Delivery(String partnerName, double charges) {

@@ -26,11 +26,10 @@ public class Hotel {
     @JoinColumn(name = "hotel_id")
     private Set<Menu> menuList;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinTable(name = "hotel_delivery",
-            joinColumns = @JoinColumn(name = "hotel_id"),
-            inverseJoinColumns = @JoinColumn(name = "delivery_id")
-    )
+    @ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
+    @JoinTable(name="hotel_delivery",
+            joinColumns = @JoinColumn(name="hotel_id"),
+            inverseJoinColumns = @JoinColumn(name="delivery_id") )
     private Set<Delivery> delivery;
 
     public Hotel(String hotelName, Address address, Set<Menu> menuList, Set<Delivery> delivery) {

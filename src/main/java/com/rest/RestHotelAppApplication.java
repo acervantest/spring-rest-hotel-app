@@ -73,9 +73,9 @@ public class RestHotelAppApplication implements CommandLineRunner {
 				.stream()
 				.forEach( h -> System.out.println(h.getHotelName() + " - " + h.getAddress().getCity()));*/
 
-		menuService.getMenusByHotel("Silvia Hotel")
+		/*menuService.getMenusByHotel("Silvia Hotel")
 				.stream()
-				.forEach( m -> System.out.println(m.getHotel().getHotelName() + ": " + m.getMenuName() ));
+				.forEach( m -> System.out.println(m.getHotel().getHotelName() + ": " + m.getMenuName() ));*/
 
 
 	}

@@ -9,7 +9,9 @@ import java.util.List;
 
 @Repository
 public interface HotelRepository extends JpaRepository<Hotel, Integer> {
+    //Derived query
     List<Hotel> findByAddressCity(String city);
+    //Derived query
     List<Hotel> findByAddressStreetName(String location);
 
     @Query("FROM Hotel h INNER JOIN h.menuList mn WHERE mn.menuName=?1")
